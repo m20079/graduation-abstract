@@ -1,0 +1,110 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{soumu}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=4bac54c61734cc419c7cbf1c8ce5d01f}{%
+           family={総務省},
+           familyi={総\bibinitperiod}}}%
+      }
+      \strng{namehash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \strng{fullhash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \strng{bibnamehash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \strng{authorbibnamehash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \strng{authornamehash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \strng{authorfullhash}{4bac54c61734cc419c7cbf1c8ce5d01f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{令和\textup{3}年版情報通信白書}
+      \field{year}{2021}
+    \endentry
+    \entry{gaussian_process}{book}{}
+      \name{author}{3}{}{%
+        {{hash=6a9fe01d867dae0528fe846c8949818a}{%
+           family={持橋大地},
+           familyi={持\bibinitperiod}}}%
+        {{hash=947f207380cfc4eab90a506d14250327}{%
+           family={大羽成征},
+           familyi={大\bibinitperiod}}}%
+        {{hash=b46f9f8dc6c1a7b682265cf4202b522a}{%
+           family={講談社サイエンティフィク},
+           familyi={講\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {講談社}%
+      }
+      \strng{namehash}{51d19ca986e1fb13aa8ab4209a0a3430}
+      \strng{fullhash}{85fc6353981d3408658870ed268f1b12}
+      \strng{bibnamehash}{51d19ca986e1fb13aa8ab4209a0a3430}
+      \strng{authorbibnamehash}{51d19ca986e1fb13aa8ab4209a0a3430}
+      \strng{authornamehash}{51d19ca986e1fb13aa8ab4209a0a3430}
+      \strng{authorfullhash}{85fc6353981d3408658870ed268f1b12}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{series}{MLP機械学習プロフェッショナルシリーズ}
+      \field{title}{ガウス過程と機械学習}
+      \field{year}{2019}
+    \endentry
+    \entry{shadowing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=63ea41498c9400a3d16d0249bafa4bfa}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Zhenyu},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=38d3a8f262a9ddf83af56726cbeecdbf}{%
+           family={Tameh},
+           familyi={T\bibinitperiod},
+           given={Eustace\bibnamedelima K.},
+           giveni={E\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=b54304fe4647cf9da64e943419c75c61}{%
+           family={Nix},
+           familyi={N\bibinitperiod},
+           given={Andrew\bibnamedelima R.},
+           giveni={A\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{4182a93aa0db5df9dea08e8660d35262}
+      \strng{fullhash}{c4c13183bd26d81760bb7274092e92eb}
+      \strng{bibnamehash}{4182a93aa0db5df9dea08e8660d35262}
+      \strng{authorbibnamehash}{4182a93aa0db5df9dea08e8660d35262}
+      \strng{authornamehash}{4182a93aa0db5df9dea08e8660d35262}
+      \strng{authorfullhash}{c4c13183bd26d81760bb7274092e92eb}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE trans. veh. technol}
+      \field{number}{1}
+      \field{title}{Joint {Shadowing} {Process} in {Urban} {Peer}-to-{Peer} {Radio} {Channels}}
+      \field{volume}{57}
+      \field{year}{2008}
+      \field{pages}{52\bibrangedash 64}
+      \range{pages}{13}
+      \keyw{Shadow mapping;Peer to peer computing;Analytical models;Spread spectrum communication;Ad hoc networks;Radio link;Base stations;Statistical analysis;Performance analysis;Autocorrelation;Ad Hoc;channel model;multihop;shadowing;spatial correlation;urban;Channel model,,,,,;shadowing;spatial correlation;multi-hop;ad-hoc;urban}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
