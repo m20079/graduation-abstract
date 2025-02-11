@@ -13,6 +13,7 @@
 \usepackage{here}
 \usepackage{nicematrix}
 \usepackage{enumitem}
+\usepackage{setspace}
 
 \boldmaintrue% 主文を太字にするモード(指導教員添削時はこちら)
 %　\boldmainfalse% 主文を普通文字にするモード(抄録印刷時はこちら)
@@ -41,20 +42,22 @@
 我々が日常的に使用しているスマートフォンやノートパソコンなどの通信機器は，持ち運ぶことができ，位置の調整が容易である．
 そのため，通信速度が低い場合はその位置を調整することで，通信速度を改善することができる．
 しかしIoT（Internet of Things）の普及に伴い，産業機器や家電製品などに無線通信機能が搭載されることが増えており，これらは複数の箇所に固定設置されていることが多い\cite{soumu}．
-そのため，位置の調整が困難であり位置変更により通信速度を向上させるのは容易ではない．
+そのため，位置の調整が困難であり位置変更によって通信速度を向上させるのは容易ではない．
 このような固定設置された受信機の通信速度を向上させるには，送信機の数を増やす，あるいは高出力の送信機に替えるといった方法が考えられるが，いずれもコスト（送信機の費用）がかかる．
 
 そこで，送信機の位置を調整して受信機の通信速度を向上させる方法が考えられる．
-電波は距離の累乗に比例して減衰するため，送信機と各受信機間の距離から最適な送信機位置を決定できると推定できると予想される．
+電波は距離の累乗に比例して減衰するため，送信機と各受信機間の距離から最適な送信機位置を推定できると予想される．
 しかし、屋内環境では壁や扉などの周囲の構造物による反射や回折の影響でシャドウイングと呼ばれる短区間の信号強度変動が大きい．
-よって電波の伝搬が複雑になるため通信速度が距離のみの関数にならず，具体的な形状が不明なブラックボックス関数となる．
+よって屋外に比べて電波の伝搬が複雑になるため通信速度が距離のみの関数にならず，具体的な形状が不明なブラックボックス関数となる．
 そのため，勾配法やニュートン法などの傾きを用いた最適化を適用することが困難である．
 
 このように，モデル式を用いて最適な送信機位置の予測を行うことは難しくなるため，実際に各受信機の通信速度を測定し送信機の位置を決定する必要がある．
 具体的には，送信機位置を全パターンを試すグリッドサーチと呼ばれる手法がある．
-この手法は，確実に最適な位置を見つけることができるが，多くの試行回数を必要とするため，膨大な時間や労力がかかる．
+この手法は，確実に最適な送信機位置を見つけることができるが，多くの試行回数を必要とするため，膨大な時間や労力がかかる．
+そのため，少ない試行回数で最適な送信機位置を見つける手法が求められる．
 
 そこで本研究では，ブラックボックス関数に対して最適値を求めることができるベイズ最適化を無線環境測定プロセスに適用し，通信速度と測定回数を改善することを目的とする．
+なお，ここでいう通信速度とは，通信速度が極端に遅い受信機が発生しないように，各受信機の通信速度の中で最も遅い通信速度を指す．
 
 \section{ベイズ最適化}
 
@@ -64,7 +67,7 @@
 
 \subsection{ガウス過程回帰}
 
-回帰とは，過去の測定点を用いて入力値から出力値を予測することである．
+回帰とは，過去の測定点を用いて測定していない入力値から出力値を予測することである．
 ガウス過程回帰がブラックボックス関数の最適化に有効である理由として，従来の回帰で必要だった\(y=ax+b\)のようなモデル式を使わずに関数を推定することができることが挙げられる．
 ガウス過程回帰は，出力として予測値ではなく，正規分布の平均と標準偏差を出力とする．
 これにより，\wfig{gaussian_process}のように赤点の測定点から関数を正規分布に従う確率分布として推定できる．
@@ -73,7 +76,7 @@
 \setlength\textfloatsep{3pt}
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[width=0.83\linewidth]{./figures/material_5_kernel_v2.pdf}
+	\includegraphics[width=0.9\linewidth]{./figures/material_5_kernel_v2.pdf}
 	\vspace*{-0.3cm}
 	\caption{ガウスカーネルを用いたガウス過程回帰のイメージ} \label{fig:gaussian_process}
 \end{figure}
@@ -99,7 +102,7 @@
 指数カーネルは他のカーネル関数に比べて類似度が急激に減少していることが要因と
 \setlength\intextsep{6pt}
 \setlength\textfloatsep{6pt}
-\begin{figure}[H]
+\begin{figure}[htbp]
 	\begin{minipage}[t]{0.5\columnwidth}
 		\centering
 		\includegraphics[width=\columnwidth]{./figures/kernel-crop.pdf}
@@ -179,14 +182,14 @@ Maternカーネルの\(\nu\)の値が大きいほど測定回数のばらつき�
 \setlength\textfloatsep{3pt}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{./figures/material_8_count_box.pdf}
+	\includegraphics[width=0.8\linewidth]{./figures/material_8_count_box.pdf}
 	\vspace*{-0.4cm}
 	\caption{ベイズ最適化を用いたときの測定回数の結果} \label{fig:result_count}
 \end{figure}
 \vspace*{-0.1cm}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.9\linewidth]{./figures/material_8_distance_box.pdf}
+	\includegraphics[width=0.8\linewidth]{./figures/material_8_distance_box.pdf}
 	\vspace*{-0.4cm}
 	\caption{真値からの誤差の結果} \label{fig:result_error}
 \end{figure}
@@ -195,7 +198,12 @@ Maternカーネルの\(\nu\)の値が大きいほど測定回数のばらつき�
 
 ベイズ最適化を用いて最適な送信機の位置を求める手法を提案し，シミュレーションでその有用性を確認した．
 その結果，提案手法は全探索と比較して測定回数を大幅に削減することができた．
-4種類のカーネル関数を比較した結果，測定回数と精度はトレード・オフの関係にあり，Matern5/2カーネルがバランスを保てていることがわかった．
-\printbibliography[title=参考文献]
+4種類のカーネル関数を比較した結果，測定回数と精度はトレード・オフの関係にあり，Matern5/2カーネルがバランスを保っていることがわかった．
+
+\vspace{2mm}
+
+\begin{spacing}{0.65}
+	\printbibliography[title=参考文献]
+\end{spacing}
 
 \end{document}
